@@ -7,12 +7,43 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/txttitle"
+        android:layout_width="232dp"
+        android:layout_height="67dp"
+        android:shadowColor="@android:color/background_dark"
+        android:text="Safe and security"
+        android:textColor="?attr/colorAccent"
+        android:textColorLink="#D10808"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138" />
+
+    <Button
+        android:id="@+id/btnpanic"
+        android:layout_width="195dp"
+        android:layout_height="164dp"
+        android:onClick="Saludar"
+        android:text="Boton panico"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txttitle" />
+
+    <Button
+        android:id="@+id/btncon"
+        android:layout_width="96dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:onClick="configuracion"
+        android:text="Configuracion"
+        android:textColor="@android:color/background_dark"
+        android:textSize="8sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="299dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
