@@ -3,35 +3,35 @@ package com.merino.safe_and_security;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
+
 import android.os.Bundle;
-import android.view.View;
+
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
     // Creamos la variable que hara referencia a widget
-    private TextView txttitle;
-    private Button btnpanic;
-    private Button btncon;
+
+   Button btninicio,btncancelar,btnregistro;
+   EditText txtusuario,txtpass;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Realizar las referencias
-        txttitle = findViewById(R.id.txttitle);
-        btncon = findViewById(R.id.btncon);
-        btnpanic = findViewById(R.id.btnpanic);
+        btncancelar = findViewById(R.id.btncancelar);
+        btninicio = findViewById(R.id.btninicio);
+        btnregistro = findViewById(R.id.btnregistro);
+        txtusuario = findViewById(R.id.txtusuario);
+        txtpass = findViewById(R.id.txtpass);
     }
-    public void Saludar(View View ) {
-        Toast.makeText(this,"Cambiaste de color",Toast.LENGTH_LONG).show();
-        txttitle.setTextColor(Color.BLUE);
 
-    }
-    public void configuracion(View View){
-        Intent configuracion = new Intent(this,Configuracion.class);
-        startActivity(configuracion);
-    }
+
 }

@@ -19,7 +19,6 @@ public class Configuracion extends AppCompatActivity {
     }
 
     public void volver(View View){
-        Intent volver = new Intent(this,MainActivity.class);
-        startActivity(volver);
+
     }
 }
