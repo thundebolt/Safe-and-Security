@@ -7,29 +7,29 @@
     tools:context=".Registro">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnregistro"
         android:layout_width="163dp"
         android:layout_height="71dp"
         android:layout_marginTop="328dp"
         android:text="Registrarse"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/btnvolver"
         app:layout_constraintHorizontal_bias="0.429"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnvolver"
         android:layout_width="83dp"
         android:layout_height="46dp"
         android:layout_marginTop="340dp"
         android:text="volver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintStart_toEndOf="@+id/btnregistro"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/txtemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="184dp"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/txtcontraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="252dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtusuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
         android:text="Usuario : "
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/txtusuario"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:text="Email : "
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintEnd_toStartOf="@+id/txtemail"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="268dp"
         android:text="Contraseña : "
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
+        app:layout_constraintEnd_toStartOf="@+id/txtcontraseña"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

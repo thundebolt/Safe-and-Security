@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Configuracion extends AppCompatActivity {
-    private Button btnvolver;
+    Button btnvolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,9 +16,14 @@ public class Configuracion extends AppCompatActivity {
         setContentView(R.layout.activity_configuracion);
         btnvolver = findViewById(R.id.btnvolver);
 
+        btnvolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intento = new Intent(Configuracion.this ,MainActivity.class);
+            }
+        });
+
     }
 
-    public void volver(View View){
 
-    }
 }

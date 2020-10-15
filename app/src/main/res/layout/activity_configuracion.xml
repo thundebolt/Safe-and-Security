@@ -10,11 +10,20 @@
         android:id="@+id/btnvolver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="36dp"
         android:onClick="volver"
-        android:text="Volver "
+        android:text="volver inicio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aun en avance"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="261dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
