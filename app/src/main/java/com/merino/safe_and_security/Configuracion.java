@@ -20,6 +20,7 @@ public class Configuracion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intento = new Intent(Configuracion.this ,MainActivity.class);
+                startActivity(intento);
             }
         });
 

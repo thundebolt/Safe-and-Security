@@ -34,6 +34,7 @@ btncofiguracion.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         Intent interoc = new Intent(Botonpanic.this,Configuracion.class);
+        startActivity(interoc);
     }
 });
     }
