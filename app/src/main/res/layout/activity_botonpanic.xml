@@ -11,6 +11,7 @@
         android:layout_width="225dp"
         android:layout_height="225dp"
         android:layout_marginTop="192dp"
+        android:rotationY="0"
         android:text="Boton panico"
         android:textColor="@android:color/background_dark"
         android:textColorHighlight="@android:color/holo_red_dark"

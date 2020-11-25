@@ -16,12 +16,13 @@ package com.merino.safe_and_security;
 
         import com.google.firebase.auth.AuthResult;
         import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.auth.FirebaseAuthUserCollisionException;
         import com.google.firebase.auth.FirebaseUser;
 
 
 
 public class Registro extends AppCompatActivity {
-    EditText txtusuario, txtpass, txtemail;
+    EditText txtconfirmar, txtpass, txtemail;
     Button btnregistro, btnvolver;
     private FirebaseAuth mAuth;
 
@@ -34,7 +35,7 @@ public class Registro extends AppCompatActivity {
 
         btnvolver = findViewById(R.id.btnvolver);
         btnregistro = findViewById(R.id.btnregistro);
-        txtusuario = findViewById(R.id.email);
+        txtconfirmar = findViewById(R.id.txtconfirmar);
         txtpass = findViewById(R.id.txtcontraseña);
         txtemail = findViewById(R.id.email);
 
@@ -61,9 +62,9 @@ public class Registro extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser)
+
     }
 
     public  void registrarse(View view){
@@ -78,43 +79,40 @@ public class Registro extends AppCompatActivity {
         else if (txtemail.getText().length() <= 0 ){
             txtemail.setError("Ingrese su email");
         }
-        else {
+        else if(txtpass.getText()!= txtconfirmar.getText()) {
+            txtconfirmar.setError("Las contraseñas no son iguales");
+        }else{
 
             mAuth.createUserWithEmailAndPassword( txtemail.getText().toString(),txtpass.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                            //Log.d(TAG, "createUserWithEmail:success");
+
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Toast.makeText(Registro.this,"ESTAS REGISTRADO :3",Toast.LENGTH_LONG).show();
                                 Intent interor = new Intent(Registro.this,MainActivity.class);
                                 startActivity(interor);
-                              //  updateUI(user);
+
                             } else {
-                                // If sign in fails, display a message to the user.
-                            //    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(Registro.this, "Authentication failed.",
+                                if(task.getException() instanceof FirebaseAuthUserCollisionException){
+
+                                    Toast.makeText(Registro.this, "Ese usuario ya existe",
+                                            Toast.LENGTH_SHORT).show();
+
+                                }
+
+
+                                Toast.makeText(Registro.this, "No se pudo registrar",
                                         Toast.LENGTH_SHORT).show();
-                               // updateUI(null);
+
                             }
 
-                            // ...
                         }
                     });
 
 
         }
-
-
-
-    }
-    public void validardatos(View view) {
-        String usuario = txtusuario.getText().toString();
-        String password = txtpass.getText().toString();
-        String email = txtemail.getText().toString();
-
 
 
 

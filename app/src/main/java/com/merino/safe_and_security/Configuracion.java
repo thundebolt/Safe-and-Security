@@ -19,7 +19,7 @@ public class Configuracion extends AppCompatActivity {
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intento = new Intent(Configuracion.this ,MainActivity.class);
+                Intent intento = new Intent(Configuracion.this ,Registro.class);
                 startActivity(intento);
             }
         });
