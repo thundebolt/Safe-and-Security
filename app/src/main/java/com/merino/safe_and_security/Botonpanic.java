@@ -62,7 +62,7 @@ public class Botonpanic extends AppCompatActivity {
         });
     }
 
-    private void permitirubicacion() {
+    /*private void permitirubicacion() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Porfavor encienda el Gps. Desea Activarlo")
                 .setCancelable(false)
@@ -84,7 +84,7 @@ public class Botonpanic extends AppCompatActivity {
         alerta.show();
 
     }
-
+*/
     private void ubicacion() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(Botonpanic.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},MY_PERMISSION_REQUEST_READ_CONTACTS);

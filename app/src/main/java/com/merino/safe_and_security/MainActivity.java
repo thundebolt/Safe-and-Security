@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (email.getText().length() <= 0) {
-            email.setError("Ingrese su nombre");
+            email.setError("Ingrese su Correo electronico");
         } else if (pass.getText().length() <= 0) {
             pass.setError("ingrese una contraseña");
         } else {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                                 // updateUI(user);
                             } else {
 
-                                Toast.makeText(MainActivity.this, "Authentication failed.",
+                                Toast.makeText(MainActivity.this, "No tiene cuenta creada porfavor registrese",
                                         Toast.LENGTH_SHORT).show();
                                 //   updateUI(null);
                             }
