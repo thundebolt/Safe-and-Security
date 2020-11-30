@@ -18,13 +18,19 @@ package com.merino.safe_and_security;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.auth.FirebaseAuthUserCollisionException;
         import com.google.firebase.auth.FirebaseUser;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
 
+        import java.util.HashMap;
+        import java.util.Map;
 
 
 public class Registro extends AppCompatActivity {
     EditText txtconfirmar, txtpass, txtemail;
     Button btnregistro, btnvolver;
     private FirebaseAuth mAuth;
+    DatabaseReference database;
+
 
 
     @Override
@@ -38,6 +44,8 @@ public class Registro extends AppCompatActivity {
         txtconfirmar = findViewById(R.id.txtconfirmar);
         txtpass = findViewById(R.id.txtcontraseña);
         txtemail = findViewById(R.id.email);
+        database = FirebaseDatabase.getInstance().getReference();
+
 
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,8 +96,6 @@ public class Registro extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-
-                                FirebaseUser user = mAuth.getCurrentUser();
                                 Toast.makeText(Registro.this,"ESTAS REGISTRADO :3",Toast.LENGTH_LONG).show();
                                 Intent interor = new Intent(Registro.this,MainActivity.class);
                                 startActivity(interor);

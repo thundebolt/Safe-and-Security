@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+
 import com.google.firebase.auth.FirebaseUser;
 
 
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                                 // updateUI(user);
                             } else {
 
-                                Toast.makeText(MainActivity.this, "No tiene cuenta creada porfavor registrese",
+                                Toast.makeText(MainActivity.this, "Inicio sesion fallado",
                                         Toast.LENGTH_SHORT).show();
                                 //   updateUI(null);
                             }
