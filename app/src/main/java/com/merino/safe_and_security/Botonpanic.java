@@ -68,7 +68,7 @@ public class Botonpanic extends AppCompatActivity {
         btncofiguracion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent interoc = new Intent(Botonpanic.this, Configuracion.class);
+                Intent interoc = new Intent(Botonpanic.this, VerUbicacion.class);
                 startActivity(interoc);
 
             }
