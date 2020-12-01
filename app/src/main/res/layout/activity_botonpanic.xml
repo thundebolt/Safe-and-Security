@@ -4,23 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#202732"
     tools:context=".Botonpanic">
 
     <Button
         android:id="@+id/btnpanic"
-        android:layout_width="142dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="141dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/boton_panico"
         android:rotationY="0"
-        android:text="Boton panico"
-        android:textColor="@android:color/background_dark"
+        android:text="Enviar ubicacion"
+        android:textColor="@android:color/background_light"
         android:textColorHighlight="@android:color/holo_red_dark"
         android:textColorHint="#FB0000"
         android:textColorLink="@color/colorPrimaryDark"
-        android:textSize="30sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,12 +29,14 @@
         android:id="@+id/btnconfiguracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Configuraciones"
+        android:layout_marginTop="112dp"
+        android:text="Ver mapa"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/boton_panico"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerUsuarios"
@@ -42,7 +45,33 @@
         android:layout_marginTop="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnpanic" />
+        app:layout_constraintTop_toBottomOf="@+id/btnpanic"
+        app:layout_constraintVertical_bias="0.596" />
+
+    <EditText
+        android:id="@+id/txtnombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/btnconfiguracion"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Nombre "
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnpanic"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

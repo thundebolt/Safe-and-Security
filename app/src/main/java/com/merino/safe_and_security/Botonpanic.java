@@ -1,5 +1,7 @@
 package com.merino.safe_and_security;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -19,11 +21,13 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,6 +43,7 @@ public class Botonpanic extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     DatabaseReference mdatabase;
     RecyclerView recyclerUsuarios;
+    EditText txtnombre;
 
 
 
@@ -48,6 +53,7 @@ public class Botonpanic extends AppCompatActivity {
         setContentView(R.layout.activity_botonpanic);
         btnpanic = findViewById(R.id.btnpanic);
         btncofiguracion = findViewById(R.id.btnconfiguracion);
+        txtnombre = findViewById(R.id.txtnombre);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mdatabase = FirebaseDatabase.getInstance().getReference();
         recyclerUsuarios = findViewById(R.id.recyclerUsuarios);
@@ -60,9 +66,15 @@ public class Botonpanic extends AppCompatActivity {
         btnpanic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ubicacion();
+                if(txtnombre.length() <= 2){
+                    txtnombre.setError("Escriba su nombre para poder enviar la ubicacion");
 
-                mp.start();
+                }else {
+
+                    ubicacion();
+                    mp.start();
+                }
+
             }
         });
         btncofiguracion.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +88,7 @@ public class Botonpanic extends AppCompatActivity {
     }
 
 
-    private void ubicacion() {
+    private void ubicacion( ) {
         if (ContextCompat.checkSelfPermission(Botonpanic.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED)
         {
@@ -87,21 +99,33 @@ public class Botonpanic extends AppCompatActivity {
 
 
         }
-        fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        // Got last known location. In some rare situations this can be null.
-                        if (location != null) {
-                            Log.e("latitud",+location.getLatitude()+"longitud"+location.getLongitude());
-                            Map<String,Object> ubicacion = new HashMap<>();
-                            ubicacion.put("latitud",location.getLatitude());
-                            ubicacion.put("longitud",location.getLongitude());
 
-                           mdatabase.child("usuarios").push().setValue(ubicacion);
+            fusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            // Got last known location. In some rare situations this can be null.
+                            if (location != null) {
+                                Log.e("latitud", +location.getLatitude() + "longitud" + location.getLongitude());
+                                Map<String, Object> ubicacion = new HashMap<>();
+                                ubicacion.put("latitud", location.getLatitude());
+                                ubicacion.put("longitud", location.getLongitude());
+                                ubicacion.put("nombre",txtnombre);
+
+
+                                mdatabase.child("usuarios").setValue(ubicacion, new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                                        Toast.makeText(getApplicationContext(),"Usuario creado",Toast.LENGTH_LONG).show();
+
+                                    }
+                                });
+
+                            }
                         }
-                    }
-                });
+                    });
 
     }
+
+
 }
