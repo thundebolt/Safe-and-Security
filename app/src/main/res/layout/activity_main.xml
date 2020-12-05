@@ -7,80 +7,135 @@
     android:background="#202732"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:layout_marginTop="224dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Contraseña"/>
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:layout_marginTop="120dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Correo electronico"/>
-
-    <Button
-        android:id="@+id/btninicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="376dp"
-        android:background="@drawable/button_ir"
-        android:text="Iniciar sesion"
-        app:layout_constraintEnd_toStartOf="@+id/btncancelar"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btncancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="376dp"
-        android:background="@drawable/button_ir"
-        android:text="Cancelar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btninicio"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnregistro"
-        android:layout_width="278dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="320dp"
-        android:background="@drawable/button_ir"
-        android:text="Registrate si eres nuevo !!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:rotationX="-25"
+        android:id="@+id/logo2"
+        android:layout_width="100dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginBottom="65dp"
+        android:background="@android:drawable/dialog_holo_dark_frame"
+        android:rotation="17"
+        android:transitionName="ImageTransition"
+        app:layout_constraintBottom_toTopOf="@+id/contenido1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/mapa" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contenido1"
+        android:layout_width="379dp"
+        android:layout_height="434dp"
+        android:transitionName="contenido"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.656">
+
+        <ImageView
+            android:id="@+id/logo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logooo"
+            android:rotationX="-25"
+            android:transitionName="logoImageTransition"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <Button
+            android:id="@+id/btncancelar"
+            android:layout_width="121dp"
+            android:layout_height="52dp"
+            android:background="@drawable/button_ir"
+            android:text="Cancelar"
+            android:transitionName="btnvTransition"
+            app:layout_constraintBottom_toTopOf="@+id/btnrecuperar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btninicio"
+            app:layout_constraintTop_toBottomOf="@+id/pass"
+            app:layout_constraintVertical_bias="0.714" />
+
+        <Button
+            android:id="@+id/btnrecuperar"
+            android:layout_width="264dp"
+            android:layout_height="42dp"
+            android:background="@drawable/button_ir"
+            android:text="Registrate si eres nuevo !!"
+            android:transitionName="btnrTransition"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btninicio" />
+
+        <Button
+            android:id="@+id/btninicio"
+            android:layout_width="126dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/button_ir"
+            android:text="Iniciar sesion"
+            android:transitionName="btninicio"
+            app:layout_constraintEnd_toStartOf="@+id/btncancelar"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/pass" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="346dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="22dp"
+            android:ems="10"
+            android:hint="Correo electronico"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:transitionName="email"
+            app:layout_constraintBottom_toTopOf="@+id/pass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo3" />
+
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="333dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="21dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:transitionName="confirmarTransition"
+            app:layout_constraintBottom_toTopOf="@+id/txtolvidar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.391"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email" />
+
+        <TextView
+            android:id="@+id/txtolvidar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Olvidaste la contraseña ?"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@+id/btninicio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.739"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pass"
+            app:layout_constraintVertical_bias="0.641" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

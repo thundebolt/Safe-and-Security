@@ -18,6 +18,7 @@ import android.location.Location;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,14 +37,16 @@ import java.util.Map;
 
 
 public class Botonpanic extends AppCompatActivity {
+    EditText nombre;
 
-    Button btnpanic, btncofiguracion;
+
+    Button btnpanic, btncofiguracion,btnwps;
     AlertDialog alerta = null;
     MediaPlayer mp;
     private FusedLocationProviderClient fusedLocationClient;
     DatabaseReference mdatabase;
-    RecyclerView recyclerUsuarios;
-    EditText txtnombre;
+
+
 
 
 
@@ -53,29 +56,35 @@ public class Botonpanic extends AppCompatActivity {
         setContentView(R.layout.activity_botonpanic);
         btnpanic = findViewById(R.id.btnpanic);
         btncofiguracion = findViewById(R.id.btnconfiguracion);
-        txtnombre = findViewById(R.id.txtnombre);
+        nombre = findViewById(R.id.txtnombre);
+        btnwps = findViewById(R.id.btnwps);
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mdatabase = FirebaseDatabase.getInstance().getReference();
-        recyclerUsuarios = findViewById(R.id.recyclerUsuarios);
 
-       // permitirubicacion();
+
+        // permitirubicacion();
 
 
         mp = MediaPlayer.create(this, R.raw.sonido);
+    btnwps.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(nombre.length() <= 2){
+                nombre.setError("Escriba su nombre para poder enviar la ubicacion");
+
+            }else {
+                sms();
+            }
+        }
+    });
 
         btnpanic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(txtnombre.length() <= 2){
-                    txtnombre.setError("Escriba su nombre para poder enviar la ubicacion");
-
-                }else {
-
                     ubicacion();
                     mp.start();
                 }
-
-            }
         });
         btncofiguracion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,13 +95,21 @@ public class Botonpanic extends AppCompatActivity {
             }
         });
     }
+public void sms(){
+    Intent sendIntent = new Intent();
+    sendIntent.setAction(Intent.ACTION_SEND);
+    sendIntent.putExtra(Intent.EXTRA_TEXT, "He enviado mi ubicacion en la app : "+ nombre.getText().toString());
+    sendIntent.setType("text/plain");
+    sendIntent.setPackage("com.whatsapp");
+    startActivity(sendIntent);
 
+}
 
-    private void ubicacion( ) {
+    private void ubicacion() {
         if (ContextCompat.checkSelfPermission(Botonpanic.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED)
         {
-            Toast.makeText(this, "Tenemos permiso", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Se a enviado su ubicacion y mensaje", Toast.LENGTH_LONG).show();
         }else{
             ActivityCompat.requestPermissions(Botonpanic.this,new
                     String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},1);
@@ -110,16 +127,10 @@ public class Botonpanic extends AppCompatActivity {
                                 Map<String, Object> ubicacion = new HashMap<>();
                                 ubicacion.put("latitud", location.getLatitude());
                                 ubicacion.put("longitud", location.getLongitude());
-                                ubicacion.put("nombre",txtnombre);
+                                mdatabase.child("usuarios").push().setValue(ubicacion);
 
 
-                                mdatabase.child("usuarios").setValue(ubicacion, new DatabaseReference.CompletionListener() {
-                                    @Override
-                                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                                        Toast.makeText(getApplicationContext(),"Usuario creado",Toast.LENGTH_LONG).show();
 
-                                    }
-                                });
 
                             }
                         }
