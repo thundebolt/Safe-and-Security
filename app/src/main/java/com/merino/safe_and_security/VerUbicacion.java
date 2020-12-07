@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -38,6 +41,23 @@ public class VerUbicacion extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     datamapa = FirebaseDatabase.getInstance().getReference();
+        timer();
+    }
+    private  void timer(){
+        new CountDownTimer(30000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                Log.e("seconds remaining: ","" + millisUntilFinished / 1000);
+
+            }
+
+            public void onFinish() {
+                Toast.makeText(VerUbicacion.this,"Puntos actualizados",Toast.LENGTH_LONG).show();
+                onMapReady(mMap);
+
+            }
+        }.start();
+
     }
 
     /**
@@ -52,7 +72,7 @@ public class VerUbicacion extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        datamapa.child("usuarios").addValueEventListener(new ValueEventListener() {
+        datamapa.child("usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (Marker marker:realTimeMarkers){
@@ -68,6 +88,7 @@ public class VerUbicacion extends FragmentActivity implements OnMapReadyCallback
                 }
                 realTimeMarkers.clear();
                 realTimeMarkers.addAll(tmpRealTimeMarkers);
+                timer();
             }
 
             @Override

@@ -40,7 +40,7 @@ public class Botonpanic extends AppCompatActivity {
     EditText nombre;
 
 
-    Button btnpanic, btncofiguracion,btnwps;
+    Button btnpanic, btncofiguracion,btnwps,btneliminar;
     AlertDialog alerta = null;
     MediaPlayer mp;
     private FusedLocationProviderClient fusedLocationClient;
@@ -58,12 +58,21 @@ public class Botonpanic extends AppCompatActivity {
         btncofiguracion = findViewById(R.id.btnconfiguracion);
         nombre = findViewById(R.id.txtnombre);
         btnwps = findViewById(R.id.btnwps);
+        btneliminar = findViewById(R.id.btnEliminar);
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         mdatabase = FirebaseDatabase.getInstance().getReference();
 
 
         // permitirubicacion();
+
+        btneliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Botonpanic.this ,Eliminar.class);
+                startActivity(intent);
+            }
+        });
 
 
         mp = MediaPlayer.create(this, R.raw.sonido);
@@ -106,6 +115,7 @@ public void sms(){
 }
 
     private void ubicacion() {
+        final String renomb = nombre.getText().toString();
         if (ContextCompat.checkSelfPermission(Botonpanic.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED)
         {
@@ -127,7 +137,9 @@ public void sms(){
                                 Map<String, Object> ubicacion = new HashMap<>();
                                 ubicacion.put("latitud", location.getLatitude());
                                 ubicacion.put("longitud", location.getLongitude());
+                                ubicacion.put("nombre",renomb);
                                 mdatabase.child("usuarios").push().setValue(ubicacion);
+
 
 
 
