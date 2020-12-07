@@ -9,16 +9,16 @@
 
     <Button
         android:id="@+id/btnpanic"
-        android:layout_width="188dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="344dp"
-        android:background="@drawable/boton_panico"
+        android:layout_width="258dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="340dp"
         android:rotationY="0"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         android:text="Enviar ubicacion"
-        android:textColor="@android:color/background_light"
-        android:textColorHighlight="@android:color/holo_red_dark"
-        android:textColorHint="#FB0000"
-        android:textColorLink="@color/colorPrimaryDark"
+        android:background="@drawable/boton_panico"
+
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -27,23 +27,27 @@
 
     <Button
         android:id="@+id/btnconfiguracion"
-        android:layout_width="190dp"
-        android:layout_height="98dp"
-        android:layout_marginTop="440dp"
+        android:layout_width="242dp"
+        android:layout_height="77dp"
+
+        android:layout_marginTop="420dp"
         android:background="@drawable/boton_panico"
+
         android:text="Ver mapa"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnwps"
-        android:layout_width="184dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="240dp"
+        android:layout_width="242dp"
         android:background="@drawable/boton_panico"
+
+        android:layout_height="77dp"
+        android:layout_marginTop="240dp"
+
         android:text="Enviar Mensaje"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,13 +81,15 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="381dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="28dp"
-        android:text="Avise a sus familiares por medio sms"
+        android:layout_width="342dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Presione uno de los botones !!!"
         android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,14 +109,17 @@
 
     <Button
         android:id="@+id/btnEliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="247dp"
+
+        android:layout_height="72dp"
+        android:background="@drawable/boton_panico"
+
         android:text="Eliminar Ubicacion"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnconfiguracion"
-        app:layout_constraintVertical_bias="0.103" />
+        app:layout_constraintVertical_bias="0.135" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

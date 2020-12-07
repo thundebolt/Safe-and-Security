@@ -79,20 +79,22 @@ public class Botonpanic extends AppCompatActivity {
     btnwps.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if(nombre.length() <= 2){
-                nombre.setError("Escriba su nombre para poder enviar la ubicacion");
 
-            }else {
                 sms();
-            }
+
         }
     });
 
         btnpanic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    ubicacion();
-                    mp.start();
+                if (nombre.length()<= 2) {
+                    nombre.setError("Escriba su nombre para poder enviar la ubicacion");
+
+
+                }else{ mp.start();
+                    ubicacion();}
+
                 }
         });
         btncofiguracion.setOnClickListener(new View.OnClickListener() {

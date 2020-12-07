@@ -44,7 +44,7 @@ public class VerUbicacion extends FragmentActivity implements OnMapReadyCallback
         timer();
     }
     private  void timer(){
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(500000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 Log.e("seconds remaining: ","" + millisUntilFinished / 1000);

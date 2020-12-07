@@ -4,7 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="40dp"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:background="#3D44FF">
     <RelativeLayout
         android:padding="10dp"
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre"
             android:gravity="right"
-            android:layout_marginRight="50dp">
+            android:layout_marginRight="40dp">
         </TextView>
 
         <TextView
@@ -43,8 +44,8 @@
             android:id="@+id/eliminar"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="70dp"
             android:layout_toEndOf="@+id/latitud"
             android:layout_toRightOf="@id/latitud"
             android:src="@drawable/eliminar">

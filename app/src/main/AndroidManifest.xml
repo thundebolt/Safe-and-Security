@@ -49,7 +49,6 @@
             android:label="@string/title_activity_ver_ubicacion" />
         <activity android:name=".Botonpanic" />
         <activity android:name=".Registro" />
-        <activity android:name=".Configuracion" />
         <activity android:name=".MainActivity" />
     </application>
 

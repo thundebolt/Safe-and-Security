@@ -13,7 +13,7 @@
         android:layout_height="83dp"
         android:layout_marginTop="47dp"
         android:layout_marginBottom="65dp"
-        android:background="@android:drawable/dialog_holo_dark_frame"
+        android:background="@drawable/mapa"
         android:rotation="17"
         android:transitionName="ImageTransition"
         app:layout_constraintBottom_toTopOf="@+id/contenido1"
